@@ -6,7 +6,7 @@
   <div class="mt-10">
     <nav>
       <ul>
-       @if(userDetails.role === 'officer'){
+       <!-- @if(userDetails.role === 'officer'){
         <app-navlist
         [iconSrc]="'assets/icons/homeI.svg'"
         [iconActSrc]="'assets/icons/home.svg'"
@@ -31,11 +31,11 @@
         (click)="setNavActive('settings')"
         [page]="'settings'"
       />
-       }
+       } -->
 
 
         <!-- Admin -->
-        @if(userDetails.role === 'admin'){
+        <!-- @if(userDetails.role === 'admin'){ -->
           <app-navlist
           [iconSrc]="'assets/icons/stats-icon.svg'"
           [iconActSrc]="'assets/icons/stats-iconActive.svg'"
@@ -53,7 +53,7 @@
         (click)="setNavActive('monitoring-officers')"
         [page]="'monitoring-officers'"
       />
-        }
+        <!-- } -->
       </ul>
     </nav>
   </div>

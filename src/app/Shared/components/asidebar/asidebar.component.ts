@@ -17,22 +17,23 @@ export class AsidebarComponent implements OnInit {
   monitoringOfficers: boolean = false;
 
   constructor(private authService: AuthServicesService){}
-  userDetails:any
+  // userDetails:any
 
   ngOnInit() {
 
-    const user:any = this.authService.getUser() 
-    this.userDetails = user
+    // const user:any = this.authService.getUser() 
+    // this.userDetails = user
 
 
     const activeNav = sessionStorage.getItem('activeNav');
     if (activeNav) {
       this.setNavActive(activeNav);
-    } else if(user.role === 'admin') {
+    } else{
       this.setNavActive('statistics');
-    }else{
-      this.setNavActive('mainDashboard');
     }
+    // }else{
+    //   this.setNavActive('mainDashboard');
+    // }
   }
 
   setNavActive(nav: string) {
