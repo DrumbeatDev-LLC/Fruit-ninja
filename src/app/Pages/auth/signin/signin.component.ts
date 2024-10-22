@@ -34,36 +34,34 @@ export class SigninComponent {
 
   signInProcess() {
     if (this.signInForm.valid) {
-      this.authService.signIn().subscribe({
-        next: (res: any) => {
-          // Check if user data exists
-          const user = res.find(
-            (user: any) =>
-              user.email === this.signInForm.value.email &&
-              user.password === this.signInForm.value.password
-          );
+      this.route.navigate(['/dashboard/admin-dashboard']);
+      // this.authService.signIn().subscribe({
+      //   next: (res: any) => {
+      //     const user = res.find(
+      //       (user: any) =>
+      //         user.email === this.signInForm.value.email &&
+      //         user.password === this.signInForm.value.password
+      //     );
   
-          if (user) {
-            console.log(user);
+      //     if (user) {
+      //       console.log(user);
   
-            // Store the user object in localStorage as a JSON string
-            localStorage.setItem('user', JSON.stringify(user));
+      //       localStorage.setItem('user', JSON.stringify(user));
   
-            // Check user role and navigate accordingly
-            if (user.role === 'admin') {
-              this.route.navigate(['/dashboard/admin-dashboard']);
-            } else if (user.role === 'officer') {
-              this.route.navigate(['/dashboard/main-dashboard']);
-            }
-          } else {
-            alert('Invalid credentials, please try again.');
-          }
-        },
-        error: (err) => {
-          console.error(err);
-          alert('An error occurred during the sign-in process.');
-        },
-      });
+      //       if (user.role === 'admin') {
+             
+      //       } else if (user.role === 'officer') {
+      //         this.route.navigate(['/dashboard/main-dashboard']);
+      //       }
+      //     } else {
+      //       alert('Invalid credentials, please try again.');
+      //     }
+      //   },
+      //   error: (err) => {
+      //     console.error(err);
+      //     alert('An error occurred during the sign-in process.');
+      //   },
+      // });
     }
   }
 }
