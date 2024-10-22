@@ -7,17 +7,17 @@ import { SignIn } from '../Interface/auth.interface';
 })
 export class AuthServicesService {
 
-  api:string = 'http://localhost:3000'
+  // api:string = 'http://localhost:3000'
 
   constructor(private _http: HttpClient) { }
 
-  signIn(){
-    return this._http.get(`${this.api}/users`,)
-  }
+  // signIn(){
+  //   return this._http.get(`${this.api}/users`,)
+  // }
 
-  getUser(){
-   const details = localStorage.getItem('user')
-   return details ? JSON.parse(details) : null
-  }
+  // getUser(){
+  //  const details = localStorage.getItem('user')
+  //  return details ? JSON.parse(details) : null
+  // }
 
 }

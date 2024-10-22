@@ -6,7 +6,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthServicesService } from '../../../Core/Services/auth-services.service';
 
 @Component({
   selector: 'app-signin',
@@ -23,7 +22,6 @@ export class SigninComponent {
   signInForm: FormGroup;
   constructor(
     private _fb: FormBuilder,
-    private authService: AuthServicesService,
     private route: Router
   ) {
     this.signInForm = this._fb.group({
@@ -35,33 +33,6 @@ export class SigninComponent {
   signInProcess() {
     if (this.signInForm.valid) {
       this.route.navigate(['/dashboard/admin-dashboard']);
-      // this.authService.signIn().subscribe({
-      //   next: (res: any) => {
-      //     const user = res.find(
-      //       (user: any) =>
-      //         user.email === this.signInForm.value.email &&
-      //         user.password === this.signInForm.value.password
-      //     );
-  
-      //     if (user) {
-      //       console.log(user);
-  
-      //       localStorage.setItem('user', JSON.stringify(user));
-  
-      //       if (user.role === 'admin') {
-             
-      //       } else if (user.role === 'officer') {
-      //         this.route.navigate(['/dashboard/main-dashboard']);
-      //       }
-      //     } else {
-      //       alert('Invalid credentials, please try again.');
-      //     }
-      //   },
-      //   error: (err) => {
-      //     console.error(err);
-      //     alert('An error occurred during the sign-in process.');
-      //   },
-      // });
     }
   }
 }
